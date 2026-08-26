@@ -1,0 +1,33 @@
+<div class="dashboard">
+  <app-sidebar></app-sidebar>
+  <div class="main-content">
+    <app-navbar></app-navbar>
+    <main class="content">
+      <div class="dashboard-content">
+        <div class="page-header">
+          <div><h1>Welcome Back, Hetal 👋</h1><p>Your AI Career Intelligence Dashboard</p></div>
+          <a class="primary-link" routerLink="/resume-upload">Analyze a new resume</a>
+        </div>
+
+        <ng-container *ngIf="analysis as a; else emptyState">
+          <div class="cards">
+            <div class="card blue"><h3>Resume Score</h3><h2>{{ a.resumeScore }}%</h2><p>Backend analysis</p></div>
+            <div class="card green"><h3>Skills Found</h3><h2>{{ a.skills.length }}</h2><p>Detected in resume</p></div>
+            <div class="card orange"><h3>Missing Skills</h3><h2>{{ a.missingSkills.length }}</h2><p>Recommended to learn</p></div>
+            <div class="card purple"><h3>Best Match</h3><h2>{{ a.matchScore }}%</h2><p>{{ a.recommendedCompany }}</p></div>
+          </div>
+
+          <div class="dashboard-grid">
+            <div class="panel"><h2>Missing Skills</h2><div class="skill-tags"><span *ngFor="let skill of a.missingSkills">{{ skill }}</span><span *ngIf="!a.missingSkills.length">No missing skills detected.</span></div></div>
+            <div class="panel"><h2>Learning Roadmap</h2><ol class="clean-list"><li *ngFor="let item of a.learningRoadmap">{{ item }}</li></ol></div>
+          </div>
+          <div class="panel ai-box"><h2>🤖 AI Recommendation</h2><ul class="clean-list"><li *ngFor="let item of a.aiRecommendations">{{ item }}</li></ul></div>
+        </ng-container>
+
+        <ng-template #emptyState>
+          <div class="panel empty-state"><h2>Start with your resume</h2><p>Upload a resume to populate the dashboard with real backend analysis, skills, roadmap, interview questions and company matches.</p><a class="primary-link" routerLink="/resume-upload">Upload Resume</a></div>
+        </ng-template>
+      </div>
+    </main>
+  </div>
+</div>

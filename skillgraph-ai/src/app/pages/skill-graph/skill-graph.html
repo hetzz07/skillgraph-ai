@@ -1,0 +1,9 @@
+<div class="dashboard"><app-sidebar></app-sidebar><div class="main-content"><app-navbar></app-navbar><main class="content"><div class="dashboard-content">
+<div class="page-header"><h1>📊 Skill Graph</h1><p>Visualize the skills extracted from your latest resume analysis.</p></div>
+<ng-container *ngIf="analysis as a; else noAnalysis">
+<div class="cards"><div class="card blue"><h3>Skills Detected</h3><h2>{{ a.skills.length }}</h2><p>From your resume</p></div><div class="card green"><h3>Resume Score</h3><h2>{{ a.resumeScore }}%</h2><p>Overall profile</p></div><div class="card orange"><h3>Missing Skills</h3><h2>{{ a.missingSkills.length }}</h2><p>Growth areas</p></div><div class="card purple"><h3>Match Score</h3><h2>{{ a.matchScore }}%</h2><p>{{ a.recommendedCompany }}</p></div></div>
+<div class="dashboard-grid"><div class="panel"><h2>Technical Skills</h2><div class="skill" *ngFor="let skill of a.skills; let i = index"><span>{{ skill }}</span><div class="progress"><div class="fill" [style.width.%]="Math.max(30, 100 - i * 7)"></div></div><span>{{ Math.max(30, 100 - i * 7) }}%</span></div></div>
+<div class="panel"><h2>Skill Distribution</h2><div class="circle"><div class="inner">{{ a.skills.length }}</div></div><p class="muted">Skills detected and stored by the backend.</p></div></div>
+<div class="dashboard-grid"><div class="panel"><h2>AI Suggestions</h2><ul><li *ngFor="let item of a.aiRecommendations">{{ item }}</li></ul></div><div class="panel"><h2>Skill Graph Data</h2><p><strong>Nodes:</strong> {{ a.skillGraph?.nodes?.length || a.skills.length }}</p><p><strong>Connections:</strong> {{ a.skillGraph?.edges?.length || 0 }}</p></div></div>
+</ng-container><ng-template #noAnalysis><div class="panel empty-state"><h2>No skill graph yet</h2><p>Upload a resume first so the backend can extract and graph your skills.</p></div></ng-template>
+</div></main></div></div>

@@ -1,0 +1,262 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Inter',sans-serif;
+}
+
+.sidebar{
+
+    width:280px;
+    min-width:280px;
+    height:100vh;
+
+    background:#0f172a;
+
+    display:flex;
+    flex-direction:column;
+
+    color:white;
+
+    position:sticky;
+    top:0;
+
+    box-shadow:8px 0 25px rgba(0,0,0,.15);
+
+}
+
+/* ===========================
+   Logo
+=========================== */
+
+.logo-section{
+
+    display:flex;
+    align-items:center;
+
+    gap:15px;
+
+    padding:28px 24px;
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+
+}
+
+.logo-icon{
+
+    width:56px;
+    height:56px;
+
+    border-radius:16px;
+
+    background:linear-gradient(135deg,#2563eb,#3b82f6);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-weight:700;
+
+    font-size:18px;
+
+    box-shadow:0 8px 18px rgba(37,99,235,.35);
+
+}
+
+.logo-content h2{
+
+    font-size:20px;
+    font-weight:700;
+    color:white;
+
+}
+
+.logo-content p{
+
+    color:#94a3b8;
+    font-size:13px;
+    margin-top:4px;
+
+}
+
+/* ===========================
+   Menu
+=========================== */
+
+.menu{
+
+    display:flex;
+    flex-direction:column;
+
+    padding:22px 14px;
+
+    gap:8px;
+
+}
+
+.menu a{
+
+    text-decoration:none;
+
+    color:#cbd5e1;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    padding:14px 16px;
+
+    border-radius:14px;
+
+    transition:.3s;
+
+    font-size:15px;
+
+    font-weight:500;
+
+}
+
+.menu a:hover{
+
+    background:#1e293b;
+
+    color:white;
+
+    transform:translateX(4px);
+
+}
+
+.menu a.active{
+
+    background:linear-gradient(
+        135deg,
+        #2563eb,
+        #3b82f6
+    );
+
+    color:white;
+
+    box-shadow:0 8px 18px rgba(37,99,235,.30);
+
+}
+
+.icon{
+
+    width:22px;
+
+    text-align:center;
+
+    font-size:18px;
+
+}
+
+/* ===========================
+   Bottom
+=========================== */
+
+.bottom-menu{
+
+    margin-top:auto;
+
+    padding:20px 14px;
+
+    border-top:1px solid rgba(255,255,255,.08);
+
+}
+
+.logout-btn{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    padding:14px 16px;
+
+    border-radius:14px;
+
+    color:#fecaca;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.logout-btn:hover{
+
+    background:#dc2626;
+
+    color:white;
+
+}
+
+/* ===========================
+   Scrollbar
+=========================== */
+
+.sidebar::-webkit-scrollbar{
+
+    width:6px;
+
+}
+
+.sidebar::-webkit-scrollbar-thumb{
+
+    background:#334155;
+
+    border-radius:10px;
+
+}
+
+/* ===========================
+   Responsive
+=========================== */
+
+@media(max-width:900px){
+
+.sidebar{
+
+    width:90px;
+    min-width:90px;
+
+}
+
+.logo-content{
+
+    display:none;
+
+}
+
+.menu a .text{
+
+    display:none;
+
+}
+
+.logout-btn .text{
+
+    display:none;
+
+}
+
+.menu a{
+
+    justify-content:center;
+
+}
+
+.logout-btn{
+
+    justify-content:center;
+
+}
+
+}
+.mobile-menu-btn{display:none;position:fixed;z-index:1002;left:14px;top:14px;width:46px;height:46px;border:0;border-radius:12px;background:#0f172a;color:#fff;font-size:22px;box-shadow:0 8px 20px rgba(15,23,42,.2);cursor:pointer}.sidebar-backdrop{display:none}
+@media(max-width:768px){.mobile-menu-btn{display:flex;align-items:center;justify-content:center}.sidebar{position:fixed;z-index:1001;left:0;top:0;height:100vh;width:280px;min-width:280px;transform:translateX(-100%);transition:transform .25s ease;overflow-y:auto}.sidebar.open{transform:translateX(0)}.sidebar-backdrop{display:block;position:fixed;inset:0;background:rgba(15,23,42,.45);z-index:1000}.sidebar .logo-content,.sidebar .menu a .text,.sidebar .logout-btn .text{display:block}.sidebar .menu a,.sidebar .logout-btn{justify-content:flex-start}}
